@@ -1,36 +1,41 @@
 import fileinput
-import math
 
 class Driver:
 
     def __init__(self, name):
         self.name = name
         self.miles = 0
+        self.time = 0
         self.avgspeed = -1
 
     def __repr__(self):
         if self.miles > 0:
-            return "{}: {} miles @ {} mph".format(self.name, math.floor(self.miles), math.floor(self.avgspeed))
+            cleanmiles = int(round(self.miles, 0))
+            cleanspeed = int(round(self.avgspeed))
+            return "{}: {} miles @ {} mph".format(self.name, cleanmiles, cleanspeed)
         else:
             return "{}: 0 miles".format(self.name)
 
     def addTrip(self, start, end, dist):
         startHr, startMin = start.split(':')
         endHr, endMin = end.split(':')
+        startHr = float(startHr)
+        startMin = float(startMin)
+        endHr = float(endHr)
+        endMin = float(endMin)
+        dist = float(dist)
         elapsed = (endHr - startHr) + (endMin - startMin) / 60
         speed = dist / elapsed
-
         if speed < 5 or speed > 100:
             return
 
         if self.avgspeed < 0:
             self.avgspeed = speed
         else:
-            self.avgspeed = (self.miles * self.avgspeed + dist * speed) / (self.miles + dist)
+            self.avgspeed = (self.time * self.avgspeed + elapsed * speed) / (self.time + elapsed)
 
         self.miles += dist
-
-
+        self.time += elapsed
 
 
 def main():
@@ -55,7 +60,7 @@ def main():
         else:
             return "Invalid Input"
 
-    driverList = driverMap.values()
+    driverList = list(driverMap.values())
     driverList.sort(reverse = True, key = lambda d: d.miles)
     for driver in driverList:
         print(driver)
