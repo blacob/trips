@@ -38,6 +38,16 @@ class Driver:
         self.time += elapsed
 
 
+    def getMiles(self):
+        return self.miles
+
+    def getTime(self):
+        return self.time
+
+    def getAvgSpeed(self):
+        return self.avgspeed
+
+
 def main():
     lines = []
     for line in fileinput.input():
@@ -61,7 +71,7 @@ def main():
             return "Invalid Input"
 
     driverList = list(driverMap.values())
-    driverList.sort(reverse = True, key = lambda d: d.miles)
+    driverList.sort(reverse = True, key = lambda d: d.getMiles())
     for driver in driverList:
         print(driver)
 
