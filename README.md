@@ -4,6 +4,10 @@ A python program to track driving history for people.
 ## Dependencies
 Python3
 
+Testing:
+pip install pytest
+pip install cli-test-helpers
+
 ## Usage
 On command line, run
 ```bash
@@ -23,4 +27,4 @@ In fact, even in manipulating the input from a filename into a usable form, I ra
 
 Now, onto the handling of commmands. In the case of a Driver command, I simply needed to create a new driver object. But I also needed to keep track of my existing drivers, for which I used a python dictionary because I wanted quick search time from names to driver objects for my Trip commands.
 
-Once I had processed the various commands, my necesarry data was stored properly, and form there it was just a matter of processing it for output, much of which I discussed in the first section. 
+Once I had processed the various commands, my necesarry data was stored properly, and form there it was just a matter of processing it for output, much of which I discussed in the first section.
