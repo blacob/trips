@@ -1,0 +1,6 @@
+Driver Foo 
+Driver Bar 
+Trip Bar 13:15 13:30 5
+Trip Foo 13:15 13:30 10 
+Trip Bar 10:00 11:00 40 
+Trip Foo 14:20 15:20 20

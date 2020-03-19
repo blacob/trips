@@ -1,4 +1,5 @@
 import fileinput
+import sys
 
 class Driver:
 
@@ -50,8 +51,9 @@ class Driver:
 
 def main():
     lines = []
+    name = sys.argv[1]
     for line in fileinput.input():
-        cleaned = line.replace('\n', '') ## REVIEW: problem if any field is allowed to have \n
+        cleaned = line.replace('\n', '')
         lines.append(cleaned)
 
     driverMap = {}
@@ -72,8 +74,13 @@ def main():
 
     driverList = list(driverMap.values())
     driverList.sort(reverse = True, key = lambda d: d.getMiles())
+    toret = ""
+    f = open("output.txt", "w")
     for driver in driverList:
         print(driver)
+        toret += str(driver) + "\n"
+    f.write(toret)
+    f.close()
 
 if __name__== "__main__":
     main()

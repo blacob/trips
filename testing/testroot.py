@@ -1,23 +1,30 @@
 import os
 import pytest
+import filecmp
 
-pytest_plugins = ['pytester']
+def test_one():
+    os.system('python3 ../root.py input/input1.txt')
+    simTest("output/output1.txt")
 
-result = os.system('python3 root.py input.txt')
-print(result)
+def test_two():
+    os.system('python3 ../root.py input/input2.txt')
+    simTest("output/output2.txt")
 
-# @pytest.fixture
-# def run(testdir):
-#     def do_run(*args):
-#         args = ["pyconv"]  list(args)
-#         return testdir._run(*args)
-#     return do_run
-#
-# def test_trips(tmpdir, run):
-#     input = tmpdir.join("input.txt")
-#     content
-#
-#     #with input.open("wb") as f:
-#
-#     result = run(tmpdir)
-#    a
+def test_three():
+    os.system('python3 ../root.py input/input3.txt')
+    simTest("output/output3.txt")
+
+def simTest(outFile):
+    expected = open(outFile, "r")
+    actual = open("output.txt", "r")
+    assert expected.read() == actual.read()
+    expected.close()
+    actual.close()
+
+def main():
+    test_one()
+    test_two()
+    test_three()
+
+if __name__== "__main__":
+    main()

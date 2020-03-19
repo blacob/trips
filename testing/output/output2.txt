@@ -1,0 +1,3 @@
+Jacob: 240 miles @ 10 mph
+Bill: 10 miles @ 10 mph
+Josh: 0 miles

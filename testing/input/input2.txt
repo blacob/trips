@@ -1,6 +1,6 @@
-Driver Dan
-Driver Lauren
-Driver Kumi
 Driver Jacob
 Driver Bill
 Driver Josh 
+Trip Jacob 00:00 23:59 240
+Trip Josh 00:01 00:02 100
+Trip Bill 10:50 11:50 10
